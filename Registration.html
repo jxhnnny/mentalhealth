@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Mental Health Support - Registration</title>
+    
+    <style>
+        /* Background and layout styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('Mental2.JPEG');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set to 100vh for full viewport height */
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling of the body */
+        }
+
+        /* Registration Layout */
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+            border-radius: 10px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            overflow-y: auto; /* Make the container scrollable */
+            height: 80vh; /* Set a fixed height for the container */
+        }
+
+        /* Header edit */
+        .branding-header {
+            color: #003366;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Registration title edit */
+        .registration-title {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input styling */
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        /* Register button edit */
+        .form-group button {
+            width: 100%;
+            padding: 0.7rem;
+            font-size: 1rem;
+            border-radius: 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer editing */
+        footer {
+            background-color: rgba(245, 245, 245, 0.9);
+            width: calc(100% - 4px);
+            padding: 0.8rem;
+            border-radius: 0 0 10px 10px;
+            font-size: 0.9rem;
+            color: #333;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 10px; /* Adjusted to fit within the scrollable area */
+            left: 2px;
+        }
+        .nav-links {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 10px 0;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #003366;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        } 
+    </style>
+</head>
+
+<div>
+<?php
+if(isset ($_POST['Register'])){
+echo 'User Created.';
+}
+?>
+</div>
+
+<body>
+    <div class="container">
+        <div class="branding-header">WHMS</div> <!-- Moved here to be at the top of the container -->
+        <nav class="nav-links">
+            <a href="Index.html">Home</a>
+            <a href="MELP.html">Meet friends</a>
+            <a href="PHelp_Care.html">Request Professional Help</a>
+            <a href="LFeed.html">Live Message Feed</a>
+            <a href="Donations.html">Donations</a>
+            <a href="AboutUs.php">About Us</a>
+            <a href="Contacts.html">Contact</a>
+        </nav>
+        <h2 class="registration-title">Registration</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+        
+    </div>
+
+    <script>
+        // Registration form submission handler
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect user data
+            const userData = {
+                name: document.getElementById('name').value,
+                surname: document.getElementById('surname').value,
+                age: document.getElementById('age').value,
+                city: document.getElementById('city').value,
+                country: document.getElementById('country').value,
+                zip: document.getElementById('zip').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            // Send user data to backend for registration
+            fetch('http://localhost:5000/api/auth/register', { // Connect to your backend URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.message === "Registration successful") {
+                    window.location.href = 'Profile.php'; // Redirect to profile page on success
+                } else {
+                    alert(data.message); // Show error message if registration fails
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                alert('Registration failed. Please try again later.');
+            });
+        });
+
+
+<footer>
+            <p>&copy; 2024 World Mental Health Support. All rights reserved.</p>
+        </footer>
+
+    </script>
+</body>
+</html>
+

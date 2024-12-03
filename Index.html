@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ADD8E6; /* Light blue */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Wrap images into rows */
+            gap: 20px; /* Space between images */
+            margin-top: 20px;
+        }
+
+        .image-item {
+            width: 23%; /* Ensures 4 images per row */
+            box-sizing: border-box;
+        }
+
+        .image-item img {
+            width: 100%; /* Responsive width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Optional rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a polished look */
+        }
+
+        .forum-links {
+            margin-top: 30px;
+        }
+
+        .forum-links a {
+            display: block;
+            text-decoration: none;
+            color: #4CAF50;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .forum-links a:hover {
+            color: #000000;
+        }
+        #profileIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50; /* Green background */
+    border-radius: 50%; /* Circular shape */
+    color: white;
+    font-size: 20px; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+#profileIcon:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+    </style>
+    
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <section id="home" class="section">
+            <header>
+                <h1>World Mental Health Support</h1>
+                <p>Free medical advice and quick care for everyone, everywhere.</p>
+
+                <a href="Profile.php">
+                    <span id="profileIcon" class="profile-icon">
+                        <i class="fas fa-user"></i> <!-- Font Awesome person icon -->
+                    </span>
+                </a>
+                
+
+                <nav class="nav-links">
+                    <a href="Index.html">Home</a>
+                    <a href="MELP.html">Meet friends</a>
+                    <a href="PHelp_Care.html">Request Professional Help</a>
+                    <a href="LFeed.html">Live Message Feed</a>
+                    <a href="Donations.html">Donations</a>
+                    <a href="AboutUs.php">About Us</a>
+                    <a href="Contacts.html">Contact</a>
+                </nav>
+            </header>
+
+            <h2>Welcome to Our Platform</h2>
+            <p>Our mission is to provide free and accessible mental health support to everyone around the world. Here, you can receive real medical advice and quick care from professionals who are dedicated to helping you.</p>
+        </section>
+
+        <p>"There is a crack in everything, that's how the light gets in"-Leonard Cohen</p>
+            
+        <section class="section">
+            <div class="image-container" id="image-container">
+                <!-- Images will be loaded dynamically here -->
+            </div>
+        </section>
+
+        <section id="forum" class="section">
+            <h2>Mental Health Forums</h2>
+            <div class="forum-links">
+                <a href="https://www.reddit.com/r/mentalhealth/" target="_blank" onclick="openForumPreview(event, 'Reddit Mental Health Forum')">Reddit - Mental Health Forum</a>
+                <a href="https://www.psychforums.com/" target="_blank" onclick="openForumPreview(event, 'PsychForums')">PsychForums</a>
+                <a href="https://www.crazyboards.org/" target="_blank" onclick="openForumPreview(event, 'CrazyBoards')">CrazyBoards</a>
+            </div>
+        </section>
+
+        <section id="video" class="section">
+            <h2>Enjoy multiple videos to help you deal with mental health</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/16XD6zP_d8M?list=PLIvnz6vjrZYcWTUKscN7g3crsAJ8IJTxM" allowfullscreen></iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 World Mental Health Support. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to dynamically load images in rows of 4
+        const images = [
+            "Aboutyou.jpg", "wecare.jpg", "Care1.jpg", "Care2.JPEG",
+            "Care3.JPEG", "Care4.JPEG", "Care5.JPEG", "Care7.JPEG"
+        ];
+
+        const imageContainer = document.getElementById('image-container');
+
+        function loadImages() {
+            images.forEach((image, index) => {
+                const imageItem = document.createElement('div');
+                imageItem.classList.add('image-item');
+
+                const img = document.createElement('img');
+                img.src = image;
+                img.alt = "Image " + (index + 1);
+                img.width = 300; // You can adjust this as necessary
+                img.height = 300;
+
+                imageItem.appendChild(img);
+                imageContainer.appendChild(imageItem);
+            });
+        }
+
+        // Call the function to load images when the page is ready
+        loadImages();
+
+        // Open forum link in a new window with a preview of the forum
+        function openForumPreview(event, forumName) {
+            event.preventDefault(); // Prevent default link behavior
+            const url = event.target.href;
+            window.open(url, forumName, 'width=800,height=600');
+        }
+    </script>
+
+</body>
+
+</html>
+

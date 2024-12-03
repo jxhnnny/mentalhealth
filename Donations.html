@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform - Donation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container with background image */
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-image: url('Care10.JPEG'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+        #profileIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50; /* Green background */
+    border-radius: 50%; /* Circular shape */
+    color: white;
+    font-size: 20px; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+#profileIcon:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <section id="donations" class="section">
+            <header>
+            <h1>World Mental Health Support</h1>
+    <h1>Welcome to World Mental Health Support</h1>
+    
+    <p>Free medical advice and quick care for everyone, everywhere.</p>
+
+    <a href="profile.html">
+        <span id="profileIcon" class="profile-icon">
+            <i class="fas fa-user"></i> <!-- Font Awesome person icon -->
+        </span>
+    </a>
+            </header>
+
+            <nav class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="MELP.html">Meet friends</a>
+                <a href="PHelp_Care.html">Request Professional Help</a>
+                <a href="LFeed.html">Live Message Feed</a>
+                <a href="Donations.html">Donations</a>
+                <a href="AboutUs.php">About Us</a>
+                <a href="Contacts.html">Contact</a>
+            </nav>
+
+            <h2>Make a Donation</h2>
+            <p>Your donation helps us continue providing free mental health support to those in need. Every contribution makes a difference.</p>
+            
+            <!-- Donation Form -->
+            <form id="donationForm" action="https://www.paypal.com/cgi-bin/webscr" method="POST" target="_blank">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Donation Amount (USD):</label>
+                    <input type="number" id="amount" name="amount" placeholder="Enter amount" required min="1">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (optional):</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Leave a message with your donation (optional)"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="business" value="iorquigomes@gmail.com"> <!-- Your PayPal email -->
+                    <input type="hidden" name="item_name" value="Donation to World Mental Health Support">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <button type="submit">Donate</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="about" class="section">
+            <h2>Why Your Donation Matters</h2>
+            <p>Your support allows us to keep our platform running and reach more individuals who need mental health assistance. Every donation helps us expand our resources, improve our services, and offer timely help to those in need.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 World Mental Health Support. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

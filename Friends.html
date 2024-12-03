@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Platform - Profiles</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+
+<body>
+   
+
+
+    <div class="container">
+ <header>
+<!-- Make profile icon clickable -->
+            <a href="profile.html">
+                <span id="profileIcon" class="profile-icon"></span>
+            </a>
+            <span id="userNameDisplay"></span>
+        
+        <h1>World Mental Health Support - User Profiles</h1>
+        <nav class="nav-links">
+        <a href="Index.html">Home</a>
+        <a href="MELP.html">Meet friends</a>
+        <a href="PHelp_Care.html">Request Professional Help</a>
+        <a href="LFeed.html">Live Message Feed</a>
+        <a href="Donations.html">Donations</a>
+        <a href="AboutUs.php">About Us</a>
+        <a href="Contacts.html">Contact</a>
+
+    </nav>
+            
+    </header>
+        <!-- Sample Profile Cards -->
+        <div class="profile-card" data-username="Urania">
+            <img src="profile1.jpg" alt="Urania's Profile">
+            <h3>Urania</h3>
+            <button class="add-friend-btn" onclick="addFriend('Urania')">Add Friend</button>
+            <button class="delete-friend-btn" onclick="deleteFriend('Urania')">Delete Friend</button>
+        </div>
+
+        <div class="profile-card" data-username="Alan">
+            <img src="profile2.jpg" alt="Alan's Profile">
+            <h3>Alan</h3>
+            <button class="add-friend-btn" onclick="addFriend('Alan')">Add Friend</button>
+            <button class="delete-friend-btn" onclick="deleteFriend('Alan')">Delete Friend</button>
+        </div>
+
+        <div class="profile-card" data-username="Elizeth">
+            <img src="profile3.jpg" alt="Elizeth's Profile">
+            <h3>Elizeth</h3>
+            <button class="add-friend-btn" onclick="addFriend('Elizeth')">Add Friend</button>
+            <button class="delete-friend-btn" onclick="deleteFriend('Elizeth')">Delete Friend</button>
+        </div>
+    </div>
+
+    <div class="friend-list">
+        <h2>Your Friends List</h2>
+        <ul id="friendList">
+            <!-- Friends will be listed here -->
+        </ul>
+    </div>
+
+    <script>
+        let friends = [];
+
+        // Fetch current user data and update user display
+        async function fetchUserData() {
+            try {
+                const response = await fetch('http://localhost:5000/api/user', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data.');
+                }
+
+                const userData = await response.json();
+                document.getElementById('userNameDisplay').textContent = `Welcome, ${userData.name}!`;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('userNameDisplay').textContent = 'Welcome, Guest!';
+            }
+        }
+
+        // Add friend to the list and update UI
+        function addFriend(username) {
+            if (!friends.includes(username)) {
+                friends.push(username);
+                updateFriendList();
+                alert(username + ' has been added to your friends list.');
+            } else {
+                alert(username + ' is already your friend.');
+            }
+        }
+
+        // Remove friend from the list and update UI
+        function deleteFriend(username) {
+            const index = friends.indexOf(username);
+            if (index > -1) {
+                friends.splice(index, 1);
+                updateFriendList();
+                alert(username + ' has been removed from your friends list.');
+            } else {
+                alert(username + ' is not in your friend list.');
+            }
+        }
+
+        // Update the friend list in the DOM
+        function updateFriendList() {
+            const friendList = document.getElementById('friendList');
+            friendList.innerHTML = ''; 
+            friends.forEach(function(friend) {
+                const listItem = document.createElement('li');
+                listItem.textContent = friend;
+                friendList.appendChild(listItem);
+            });
+        }
+
+        // Load user data on page load
+        window.onload = fetchUserData;
+    </script>
+
+</body>
+
+</html>
